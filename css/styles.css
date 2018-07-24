@@ -85,13 +85,15 @@ Global Styles
 .slide {
   display: block;
   opacity: 1;
-  width: 700px;
-  height: 700px;
+  width: 90%;
+  height: calc(100vh - 64px);
   border: 4px solid #00aef0;
   color: #333333;
   background: url("/images/DP_Logo_square.jpg") no-repeat;
   background-position: top right;
-  background-color: white; }
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto; }
   .slide img {
     display: none; }
 
@@ -111,7 +113,7 @@ div.slide-text.centered {
 
 .centered {
   text-align: center;
-  margin-top: 175px;
+  margin-top: 25%;
   display: block; }
 
 a {
@@ -169,7 +171,8 @@ Footer
 div#license {
   position: absolute;
   bottom: 0.5em;
-  left: 3px; }
+  left: auto;
+  right: auto; }
 
 #license .footer-text {
   margin-left: 1em;
@@ -187,7 +190,7 @@ div#questions div.slide-text {
 div#questions img#yoda {
   max-height: 50%; }
 
-div#cache-contexts ul#overview {
+div#cache-contexts ul#topic-overview {
   margin-bottom: 0; }
 
 div#cache-contexts div#contexts {
@@ -209,3 +212,5 @@ pre#cache-settings {
 
 dl#resource-links dd {
   font-size: 0.8em; }
+
+/*# sourceMappingURL=maps/styles.css.map */

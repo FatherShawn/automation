@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>Development Automation</title>
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href="css/monokai-sublime.css" rel="stylesheet" type="text/css">
     <link href="css/normalize.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
 <div id="impress">
-    <div id="overview" class="step" data-x="-1000" data-y="-1000" data-scale="6"></div>
-    <div id="title" class="step slide" data-x="-1000" data-y="-1000" data-scale="3">
+    <div id="overview" class="step"  ></div>
+    <div id="title" class="step slide"  >
         <div class="slide-text centered">
             <h1>Development Automation with Composer, Robo and Docker</h1>
             <h2>The technology that powers the Ballast project</h2>
@@ -26,7 +27,7 @@
                                                                        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </div>
     </div>
-    <div class="step slide" id="intro" data-x="-1000" data-y="-1000" data-z="-10" data-rotate-y="180" data-scale="3">
+    <div class="step slide" id="intro"  data-rotate-y="180" >
         <h2>Introduction</h2>
         <div class="slide-text">
             <ul>
@@ -36,17 +37,17 @@
             </ul>
         </div>
     </div>
-    <div id="dx-overview" class="step slide" data-x="-1000" data-y="-3150" data-scale="1">
+    <div id="dx-overview" class="step slide"  >
         <div class="slide-text centered">
             <h1>Developer Tasks</h1>
         </div>
     </div>
-    <div id="composer-title" class="step slide" data-x="-1000" data-y="-3150" data-scale="1">
+    <div id="composer-title" class="step slide"  >
         <div class="slide-text centered">
             <h1>Composer</h1>
         </div>
     </div>
-    <div class="step slide" data-x="-1350" data-y="-3150" data-z="-350" data-rotate-y="-90">
+    <div class="step slide"  data-rotate-y="-90">
         <h2>Composer</h2>
         <h3>The hub technology of this project.</h3>
         <div class="slide-text">
@@ -56,7 +57,7 @@
             </dl>
         </div>
     </div>
-    <div class="step slide" id="api-example" data-x="-1000" data-y="-3500" data-z="-350" data-rotate-x="90">
+    <div class="step slide" id="api-example" >
         <h2>Composer</h2>
         <div class="slide-text">
             <ul>
@@ -66,12 +67,12 @@
         </div>
     </div>
 
-    <div id="robo" class="step slide" data-x="1150" data-y="-1000" data-scale="1">
+    <div id="robo" class="step slide"  >
         <div class="slide-text centered">
             <h1>Robo</h1>
         </div>
     </div>
-    <div class="step slide" data-x="800" data-y="-1000" data-z="-350" data-rotate-y="-90">
+    <div class="step slide"  data-rotate-y="-90">
         <h2>Robo</h2>
         <div class="slide-text">
             <ul>
@@ -79,12 +80,12 @@
             </ul>
         </div>
     </div>
-    <div id="render-cache" class="step slide" data-x="-1000" data-y="1150" data-scale="1">
+    <div id="render-cache" class="step slide"  >
         <div class="slide-text centered">
             <h1>Docker</h1>
         </div>
     </div>
-   <div class="step slide" data-x="-1350" data-y="1150" data-z="-350" data-rotate-y="-90">
+   <div class="step slide"  data-rotate-y="-90">
         <h2>Render Arrays and Cache</h2>
         <div class="slide-text">
             <ul>
@@ -103,32 +104,32 @@
 </code></pre>
         </div>
     </div>
-    <div id="prevent-cache" class="step slide" data-x="-1000" data-y="800" data-z="-350" data-rotate-x="90">
+    <div id="prevent-cache" class="step slide" >
         <div class="slide-text centered">
             <h1>Ahoy</h1>
             <h2>An abstraction layer for DX</h2>
         </div>
     </div>
-    <div class="step slide" data-x="-650" data-y="1150" data-z="-350" data-rotate-y="90">
+    <div class="step slide"  data-rotate-y="90">
         <h2 class="">Blocking Cache</h2>
         <div class="slide-text">
             <ul>
             </ul>
         </div>
     </div>
-    <div id="resources" class="step slide" data-x="-3150" data-y="-1000" data-scale="1">
+    <div id="resources" class="step slide"  >
         <div class="slide-text centered">
             <h1>Resources</h1>
         </div>
     </div>
-    <div class="step slide" data-x="-3500" data-y="-1000" data-z="-350" data-rotate-y="-90">
+    <div class="step slide"  data-rotate-y="-90">
         <h2>Resources</h2>
         <div class="slide-text">
             <dl id="resource-links">
             </dl>
         </div>
     </div>
-    <div id="questions" class="step slide" data-x="-3150" data-y="-650" data-z="-350" data-rotate-x="-90">
+    <div id="questions" class="step slide" >
         <h2>Open Q & A</h2>
         <div class="slide-text">
             <h3>&OpenCurlyDoubleQuote;An infinite mystery is the Force.&CloseCurlyDoubleQuote;</h3>
@@ -139,6 +140,7 @@
     </div>
 </div>
 <script src="js/impress.js"></script>
-<script>impress().init();</script>
+<script src="js/highlight.pack.js"></script>
+<!--<script>impress().init();</script>-->
 </body>
 </html>

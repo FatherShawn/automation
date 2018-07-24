@@ -116,6 +116,8 @@ Global Styles
   img {
     display: none;
   }
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.slide-text {
@@ -139,7 +141,7 @@ div.slide-text.centered {
 
 .centered {
   text-align: center;
-  margin-top: 0.25 * $slide_height;
+  margin-top: 25%;
   display: block;
 }
 
@@ -208,8 +210,8 @@ Footer
 div#license {
   position: absolute;
   bottom: 0.5em;
-  $current_width: 694px;
-  left: ($slide_width - $current_width)/2;
+  left: auto;
+  right: auto;
 }
 #license .footer-text {
   margin-left: 1em;
