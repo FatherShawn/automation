@@ -119,11 +119,57 @@
   }
 }
                 </code></pre>
-                The key section for dependency is the <em>require</em> section.
+                The key section for dependency is the <em>require</em> section.  Let's follow the chain...
             </div>
         </div>
     </div>
-
+    <div class="step slide">
+        <h2>Composer</h2>
+        <h3>Managing Dependencies</h3>
+        <div class="slide-text">
+            <span class="code-title">composer.json for fathershawn/oauth2-formassembly</span>
+            <div class="scroll">
+                <pre><code>
+{
+  "name": "fathershawn/oauth2-formassembly",
+  "description": "FormAssembly OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Shawn P. Duncan",
+      "email": "code@sd.shawnduncan.org",
+      "homepage": "https://github.com/FatherShawn"
+    }
+  ],
+  "keywords": [
+    "oauth",
+    "oauth2",
+    "client",
+    "authorization",
+    "authentication",
+    "formassembly"
+  ],
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "league/oauth2-client": "^2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "mockery/mockery": "~0.9",
+    "squizlabs/php_codesniffer": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fathershawn\\OAuth2\\Client\\": "src/"
+    }
+  }
+}
+                </code></pre>
+                I needed oauth2 to authenticate with Formassembly.  Rather than write all that myself, all I created was
+                a provider plugin for the League of Extraordinary Packages oauth library.
+            </div>
+        </div>
+    </div>
     <div id="robo" class="step slide"  >
         <div class="slide-text centered">
             <h1>Robo</h1>
