@@ -61,6 +61,7 @@
                 </li>
                 <li>Sync with a remote server</li>
                 <li>Compile the theme</li>
+                <li>Manage Drupal from the command line</li>
             </ul>
         </div>
     </div>
@@ -74,19 +75,52 @@
         <h2>Composer</h2>
         <h3>The hub technology of this project.</h3>
         <div class="slide-text">
-            <p>title</p>
-            <dl>
-
-            </dl>
+            <ul>
+                <li>Core purpose is dependency management</li>
+                <li>Builds the autoloader</li>
+                <li>Event system is the foundation for automation</li>
+            </ul>
         </div>
     </div>
-    <div class="step slide" id="api-example" >
+    <div class="step slide">
         <h2>Composer</h2>
+        <h3>Managing Dependencies</h3>
         <div class="slide-text">
-            <ul>
-
-            </ul>
-            <!-- Code is wrapped in <pre><code>-->
+            <span class="code-title">composer.json for Formassembly module</span>
+            <div class="scroll">
+                <pre><code>
+{
+  "name": "drupal/formassembly",
+  "type": "drupal-module",
+  "description": "integrates a Drupal site with the FormAssembly service",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+        "name": "Shawn Duncan",
+        "role": "Project Lead"
+    }
+  ],
+  "homepage": "https://www.drupal.org/project/formassembly",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Shawn Duncan",
+      "homepage": "https://www.drupal.org/u/fathershawn",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/formassembly",
+    "source": "http://cgit.drupalcode.org/formassembly"
+  },
+  "require": {
+    "fathershawn/oauth2-formassembly": "^1.0"
+  }
+}
+                </code></pre>
+                The key section for dependency is the <em>require</em> section.
+            </div>
         </div>
     </div>
 
