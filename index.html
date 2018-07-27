@@ -11,8 +11,8 @@
 </head>
 <body>
 <div id="impress">
-    <div id="overview" class="step"  ></div>
-    <div id="title" class="step slide"  >
+    <div id="overview" class="step"></div>
+    <div id="title" class="step slide">
         <div class="slide-text centered">
             <h1>Development Automation with Composer, Robo and Docker</h1>
             <h2>The technology that powers the Ballast project</h2>
@@ -27,17 +27,18 @@
                                                                        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </div>
     </div>
-    <div class="step slide" id="intro"  data-rotate-y="180" >
+    <div class="step slide" id="intro" data-rotate-y="180">
         <h2>Introduction</h2>
         <div class="slide-text">
             <ul>
                 <li>Drupal.org: <a href="https://www.drupal.org/u/fathershawn">FatherShawn</a></li>
                 <li>Twitter: <a href="https://twitter.com/FatherShawn">@FatherShawn</a></li>
-                <li>These slides: <a href="http://talks.shawnduncan.org/automation/">talks.shawnduncan.org/cache_bin</a></li>
+                <li>These slides: <a href="http://talks.shawnduncan.org/automation/">talks.shawnduncan.org/cache_bin</a>
+                </li>
             </ul>
         </div>
     </div>
-    <div id="dx-overview" class="step slide"  >
+    <div id="dx-overview" class="step slide">
         <div class="slide-text centered">
             <h2>Developer Tasks</h2>
         </div>
@@ -65,13 +66,13 @@
             </ul>
         </div>
     </div>
-    <div id="composer-title" class="step slide"  >
+    <div id="composer-title" class="step slide">
         <div class="slide-text centered">
             <h1>Composer</h1>
             <img src="images/Composer.svg">
         </div>
     </div>
-    <div class="step slide"  data-rotate-y="-90">
+    <div class="step slide" data-rotate-y="-90">
         <h2>Composer</h2>
         <h3>The hub technology of this project.</h3>
         <div class="slide-text">
@@ -90,36 +91,12 @@
             <div class="scroll">
                 <pre><code>
 {
-  "name": "drupal/formassembly",
-  "type": "drupal-module",
-  "description": "integrates a Drupal site with the FormAssembly service",
-  "keywords": ["Drupal"],
-  "license": "GPL-2.0+",
-  "authors": [
-    {
-        "name": "Shawn Duncan",
-        "role": "Project Lead"
-    }
-  ],
-  "homepage": "https://www.drupal.org/project/formassembly",
-  "minimum-stability": "dev",
-  "authors": [
-    {
-      "name": "Shawn Duncan",
-      "homepage": "https://www.drupal.org/u/fathershawn",
-      "role": "Developer"
-    }
-  ],
-  "support": {
-    "issues": "https://www.drupal.org/project/issues/formassembly",
-    "source": "http://cgit.drupalcode.org/formassembly"
-  },
   "require": {
     "fathershawn/oauth2-formassembly": "^1.0"
   }
 }
                 </code></pre>
-                The key section for dependency is the <em>require</em> section.  Let's follow the chain...
+                The key section for dependency is the <em>require</em> section. Let's follow the chain...
             </div>
         </div>
     </div>
@@ -127,55 +104,39 @@
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
-            <span class="code-title">composer.json for fathershawn/oauth2-formassembly</span>
+            <span class="code-title">Snippet from composer.json for fathershawn/oauth2-formassembly</span>
             <div class="scroll">
                 <pre><code>
 {
-  "name": "fathershawn/oauth2-formassembly",
-  "description": "FormAssembly OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
-  "license": "GPL-2.0-or-later",
-  "authors": [
-    {
-      "name": "Shawn P. Duncan",
-      "email": "code@sd.shawnduncan.org",
-      "homepage": "https://github.com/FatherShawn"
-    }
-  ],
-  "keywords": [
-    "oauth",
-    "oauth2",
-    "client",
-    "authorization",
-    "authentication",
-    "formassembly"
-  ],
   "require": {
     "php": "^5.6 || ^7.0",
     "league/oauth2-client": "^2.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "~4.0",
-    "mockery/mockery": "~0.9",
-    "squizlabs/php_codesniffer": "~2.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Fathershawn\\OAuth2\\Client\\": "src/"
-    }
   }
 }
                 </code></pre>
-                I needed oauth2 to authenticate with Formassembly.  Rather than write all that myself, all I created was
-                a provider plugin for the League of Extraordinary Packages oauth library.
             </div>
         </div>
     </div>
-    <div id="robo" class="step slide"  >
+    <div class="step slide">
+        <h2>Composer</h2>
+        <h3>Adding new Drupal modules</h3>
+        <div class="slide-text">
+            <pre><code>composer require drupal/module_name</code></pre>
+        </div>
+    </div>
+    <div class="step slide">
+        <h2>Composer</h2>
+        <h3>Upgrade Core</h3>
+        <div class="slide-text">
+            <pre><code>composer update drupal/core webflo/drupal-core-require-dev webflo/drupal-core-strict</code></pre>
+        </div>
+    </div>
+    <div id="robo" class="step slide">
         <div class="slide-text centered">
             <h1>Robo</h1>
         </div>
     </div>
-    <div class="step slide"  data-rotate-y="-90">
+    <div class="step slide" data-rotate-y="-90">
         <h2>Robo</h2>
         <div class="slide-text">
             <ul>
@@ -183,23 +144,27 @@
             </ul>
         </div>
     </div>
-    <div id="render-cache" class="step slide"  >
+    <div id="render-cache" class="step slide">
         <div class="slide-text centered">
             <h1>Docker</h1>
         </div>
     </div>
-   <div class="step slide"  data-rotate-y="-90">
+    <div class="step slide" data-rotate-y="-90">
         <h2>Render Arrays and Cache</h2>
         <div class="slide-text">
             <ul>
-                <li><a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3AaddCacheableDependency/8.1.x">Renderer::addCacheableDependency</a> for the win!</li>
+                <li>
+                    <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3AaddCacheableDependency/8.1.x">Renderer::addCacheableDependency</a>
+                    for the win!
+                </li>
                 <li>Set your context directly.</li>
                 <li>Still have time based cache available.</li>
             </ul>
-<pre><code>
+            <pre><code>
 <span style="color:#3e87e3">$render_array</span> <span style="color:#e28964">=</span> (
     <span style="color:#65b042">'#cache => array(
-        '</span><span style="color:#3387cc">max</span><span style="color:#e28964">-</span><span style="color:#3387cc">age</span><span style="color:#65b042">' => 0,
+        '</span><span style="color:#3387cc">max</span><span style="color:#e28964">-</span><span style="color:#3387cc">age</span><span
+                    style="color:#65b042">' => 0,
         '</span><span style="color:#3387cc">tags</span><span style="color:#65b042">' => array(),
         '</span><span style="color:#3387cc">contexts</span><span style="color:#65b042">' => array(),
     );
@@ -207,32 +172,32 @@
 </code></pre>
         </div>
     </div>
-    <div id="prevent-cache" class="step slide" >
+    <div id="prevent-cache" class="step slide">
         <div class="slide-text centered">
             <h1>Ahoy</h1>
             <h2>An abstraction layer for DX</h2>
         </div>
     </div>
-    <div class="step slide"  data-rotate-y="90">
+    <div class="step slide" data-rotate-y="90">
         <h2 class="">Blocking Cache</h2>
         <div class="slide-text">
             <ul>
             </ul>
         </div>
     </div>
-    <div id="resources" class="step slide"  >
+    <div id="resources" class="step slide">
         <div class="slide-text centered">
             <h1>Resources</h1>
         </div>
     </div>
-    <div class="step slide"  data-rotate-y="-90">
+    <div class="step slide" data-rotate-y="-90">
         <h2>Resources</h2>
         <div class="slide-text">
             <dl id="resource-links">
             </dl>
         </div>
     </div>
-    <div id="questions" class="step slide" >
+    <div id="questions" class="step slide">
         <h2>Open Q & A</h2>
         <div class="slide-text">
             <h3>&OpenCurlyDoubleQuote;An infinite mystery is the Force.&CloseCurlyDoubleQuote;</h3>
