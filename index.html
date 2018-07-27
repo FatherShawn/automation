@@ -66,7 +66,7 @@
             </ul>
         </div>
     </div>
-    <div id="composer-title" class="step slide">
+    <div id="composer-title" class="step slide section">
         <div class="slide-text centered">
             <h1>Composer</h1>
             <img src="images/Composer.svg">
@@ -80,6 +80,7 @@
                 <li>Core purpose is dependency management</li>
                 <li>Builds the autoloader</li>
                 <li>Event system is the foundation for automation</li>
+                <li>Installation and other documentation: <a href="https://getcomposer.org">getcomposer.org</a></li>
             </ul>
         </div>
     </div>
@@ -87,7 +88,7 @@
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
-            <span class="code-title">composer.json for Formassembly module</span>
+            <span class="code-title">Snippet from composer.json for Formassembly module</span>
             <div class="scroll">
                 <pre><code>
 {
@@ -119,6 +120,64 @@
     </div>
     <div class="step slide">
         <h2>Composer</h2>
+        <h3>Events</h3>
+        <div class="slide-text">
+            <ul>
+                <li>Full list at <a href="https://getcomposer.org/doc/articles/scripts.md">https://getcomposer.org/doc/articles/scripts.md</a></li>
+                <li>Ballast uses:
+                <dl>
+                    <dt>post-install-cmd</dt>
+                    <dd>Occurs after the <code>install</code> command has been executed with a lock file present.</dd>
+                    <dt>post-update-cmd</dt>
+                    <dd>occurs after the <code>update</code> command has been executed, or after the <code>install</code>
+                        command has been executed without a lock file present.</dd>
+                </dl>
+                </li>
+                <li>Inherited from the <code>drupal-composer/drupal-project</code> to verify Composer version.
+                    <dl>
+                        <dt>pre-install-cmd</dt>
+                        <dd>Occurs before the <code>install</code> command has been executed with a lock file present.</dd>
+                        <dt>pre-update-cmd</dt>
+                        <dd>occurs before the <code>update</code> command has been executed, or after the <code>install</code>
+                            command has been executed without a lock file present.</dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="step slide">
+        <h2>Composer</h2>
+        <h3>Events</h3>
+        <div class="slide-text">
+            <span class="code-title">Snippet from composer.json for digitalpulp/ballast</span>
+            <pre><code>
+{
+ "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "robo": "@php scripts/robo/BallastRunner.php --ansi",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "composer robo setup:drupal",
+            "composer robo setup:prerequisites"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "composer robo setup:drupal",
+            "composer robo setup:prerequisites"
+        ]
+    },
+}
+            </code></pre>
+        </div>
+    </div>
+    <div class="step slide">
+        <h2>Composer</h2>
         <h3>Adding new Drupal modules</h3>
         <div class="slide-text">
             <pre><code>composer require drupal/module_name</code></pre>
@@ -131,17 +190,73 @@
             <pre><code>composer update drupal/core webflo/drupal-core-require-dev webflo/drupal-core-strict</code></pre>
         </div>
     </div>
-    <div id="robo" class="step slide">
+    <div id="robo" class="step slide section">
         <div class="slide-text centered">
             <h1>Robo</h1>
+            <img src="images/robo.png">
         </div>
     </div>
     <div class="step slide" data-rotate-y="-90">
         <h2>Robo</h2>
         <div class="slide-text">
             <ul>
-
+                <li>Written in PHP by Greg Anderson, Michael Bodnarchuk and Moshe Weitzman</li>
+                <li>Task runner</li>
+                <li>Installed with Composer</li>
+                <li>Documentation: <a href="https://robo.li">robo.li</a> </li>
             </ul>
+        </div>
+    </div>
+    <div class="step slide">
+        <h2>Robo</h2>
+        <h3>Base Usage</h3>
+        <div class="slide-text">
+            <span class="code-title">Robo creates the command file</span>
+            <pre><code>robo init</code></pre>
+        </div>
+    </div>
+    <div class="step slide">
+        <h2>Robo</h2>
+        <h3>Base Usage</h3>
+        <div class="slide-text">
+            <span class="code-title">Public methods become executable commands</span>
+            <pre><code>
+  /**
+   * Prints the database connection info for use in SQL clients.
+   */
+  public function connectSql() {
+    $ip = $this->getDockerMachineIp();
+    $port = $this->getSqlPort();
+    $this->io()->title('Database Info');
+    $this->io()->text("The Docker Machine host is: $ip");
+    $this->io()->text("Connect to port: $port");
+    $this->io()->text("Username, password, and database are all 'drupal'");
+    $this->io()->note("Both the ip and port can vary between re-boots");
+  }
+            </code></pre>
+            <span class="code-title">on the command line:</span>
+            <pre><code>robo connect:sql</code></pre>
+        </div>
+    </div>
+    <div class="step slide">
+        <h2>Robo</h2>
+        <h3>Usage in Ballast</h3>
+        <div class="slide-text">
+            <span class="code-title">Commands can be split into multiple classes with a front controller</span>
+            <pre><code>
+-| scripts
+      BallastRunner.php
+----| src
+------| Commands
+          DeployCommands.php
+          DockerCommands.php
+          DockerMachineTrait.php
+          FrontEndTrait.php
+          RemoteRebuildCommands.php
+          SetupCommands.php
+------| Utilities
+          Config.php
+            </code></pre>
         </div>
     </div>
     <div id="render-cache" class="step slide">
@@ -149,27 +264,10 @@
             <h1>Docker</h1>
         </div>
     </div>
-    <div class="step slide" data-rotate-y="-90">
-        <h2>Render Arrays and Cache</h2>
+    <div class="step slide">
+        <h2>Docker</h2>
         <div class="slide-text">
-            <ul>
-                <li>
-                    <a href="https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3AaddCacheableDependency/8.1.x">Renderer::addCacheableDependency</a>
-                    for the win!
-                </li>
-                <li>Set your context directly.</li>
-                <li>Still have time based cache available.</li>
-            </ul>
-            <pre><code>
-<span style="color:#3e87e3">$render_array</span> <span style="color:#e28964">=</span> (
-    <span style="color:#65b042">'#cache => array(
-        '</span><span style="color:#3387cc">max</span><span style="color:#e28964">-</span><span style="color:#3387cc">age</span><span
-                    style="color:#65b042">' => 0,
-        '</span><span style="color:#3387cc">tags</span><span style="color:#65b042">' => array(),
-        '</span><span style="color:#3387cc">contexts</span><span style="color:#65b042">' => array(),
-    );
-);</span>
-</code></pre>
+
         </div>
     </div>
     <div id="prevent-cache" class="step slide">
@@ -178,32 +276,12 @@
             <h2>An abstraction layer for DX</h2>
         </div>
     </div>
-    <div class="step slide" data-rotate-y="90">
-        <h2 class="">Blocking Cache</h2>
-        <div class="slide-text">
-            <ul>
-            </ul>
-        </div>
-    </div>
-    <div id="resources" class="step slide">
-        <div class="slide-text centered">
-            <h1>Resources</h1>
-        </div>
-    </div>
-    <div class="step slide" data-rotate-y="-90">
-        <h2>Resources</h2>
-        <div class="slide-text">
-            <dl id="resource-links">
-            </dl>
-        </div>
-    </div>
     <div id="questions" class="step slide">
         <h2>Open Q & A</h2>
         <div class="slide-text">
-            <h3>&OpenCurlyDoubleQuote;An infinite mystery is the Force.&CloseCurlyDoubleQuote;</h3>
-            <img id="yoda" src="images/Yoda_Attack_of_the_Clones.png">
-            <h3>&OpenCurlyDoubleQuote;The more we learn, the more we discover how much we do not
-                know.&CloseCurlyDoubleQuote;</h3>
+            <strong>&OpenCurlyDoubleQuote;Heeded my words not, did you? Pass on what you have learned. Strength, mastery.&CloseCurlyDoubleQuote;</strong>
+            <img id="yoda" src="images/iu-2.jpeg">
+            <strong>&OpenCurlyDoubleQuote;But weakness, folly, failure also. Yes, failure most of all. The greatest teacher, failure is.&CloseCurlyDoubleQuote;</strong>
         </div>
     </div>
 </div>
