@@ -259,15 +259,42 @@
             </code></pre>
         </div>
     </div>
+    <div class="step slide">
+        <h2>Robo</h2>
+        <h3>Usage in Ballast</h3>
+        <span class="code-title">Dynamic Configuration</span>
+        <pre><code>
+  $collection->addTask(
+      $this->taskReplaceInFile("$root/setup/docker/docker-compose.yml")
+        ->from('{site_shortname}')
+        ->to($this->config->get('site_shortname'))
+    );
+            </code></pre>
+    </div>
     <div id="render-cache" class="step slide">
         <div class="slide-text centered">
             <h1>Docker</h1>
+            <img src="images/Docker_(container_engine)_logo.svg" alt="Docker whale logo">
         </div>
     </div>
     <div class="step slide">
         <h2>Docker</h2>
+        <h3>Virtual Process vs. Virtual Machine</h3>
         <div class="slide-text">
-
+            <ul>
+                <li>Convention: Like OOP, set just one purpose per container</li>
+                <li>Inject commands into the container</li>
+            </ul>
+        </div>
+    </div>
+    <div class="step slide" data-x="0" data-y="0">
+        <h2>Docker</h2>
+        <h3>Compose</h3>
+        <div class="slide-text">
+            <ul>
+                <li>Define multiple containers in a yaml file</li>
+                <li>All share a network, start and stop together</li>
+            </ul>
         </div>
     </div>
     <div id="prevent-cache" class="step slide">
