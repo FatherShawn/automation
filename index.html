@@ -17,12 +17,11 @@
 </div>
 <div id="impress">
     <div id="overview" class="step"></div>
-    <div id="title" class="step" data-x="0" data-y="0">
+    <div id="title" class="step title" data-x="0" data-y="0">
         <div class="slide-text centered">
             <h1>Development Automation with Composer, Robo and Docker</h1>
             <h2>The technology that powers the Ballast project</h2>
-            <p>Shawn Duncan, Technical Architect</p>
-            <p><a class="dp-link" href="https://www.digitalpulp.com">Digital Pulp</a></p>
+            <p>Shawn Duncan, Technical Architect<br><a class="dp-link" href="https://www.digitalpulp.com">Digital Pulp</a></p>
         </div>
         <div id="license">
             <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
@@ -32,7 +31,7 @@
                                                                        href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </div>
     </div>
-    <div class="step" id="intro" data-rotate-y="180">
+    <div class="step" id="intro" data-z="-100">
         <h2>Introduction</h2>
         <div class="slide-text">
             <ul>
@@ -43,7 +42,7 @@
             </ul>
         </div>
     </div>
-    <div id="dx-overview" class="step">
+    <div id="dx-overview" class="step" data-z="-200">
         <div class="slide-text centered">
             <h2>Developer Tasks</h2>
         </div>
@@ -71,13 +70,13 @@
             </ul>
         </div>
     </div>
-    <div id="composer-title" class="step section">
+    <div id="composer" class="step section" data-x="-7600" data-y="-900">
         <div class="slide-text centered">
             <h1>Composer</h1>
             <img src="images/Composer.svg">
         </div>
     </div>
-    <div class="step" data-rotate-y="-90">
+    <div class="step">
         <h2>Composer</h2>
         <h3>The hub technology of this project.</h3>
         <div class="slide-text">
@@ -89,7 +88,7 @@
             </ul>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-6650" data-y="-900">
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
@@ -106,7 +105,7 @@
             </div>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-8550" data-y="-900" data-rotate-z="180">
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
@@ -123,7 +122,7 @@
             </div>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-7125" data-y="-77" data-rotate-z="240">
         <h2>Composer</h2>
         <h3>Events</h3>
         <div class="slide-text">
@@ -150,7 +149,7 @@
             </ul>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-8075" data-y="-1723" data-rotate-z="180">
         <h2>Composer</h2>
         <h3>Events</h3>
         <div class="slide-text">
@@ -181,27 +180,27 @@
             </code></pre>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="8075" data-y="-77" data-rotate-z="240">
         <h2>Composer</h2>
         <h3>Adding new Drupal modules</h3>
         <div class="slide-text">
             <pre><code>composer require drupal/module_name</code></pre>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-7125" data-y="-1723" data-rotate-z="180">
         <h2>Composer</h2>
         <h3>Upgrade Core</h3>
         <div class="slide-text">
             <pre><code>composer update drupal/core webflo/drupal-core-require-dev webflo/drupal-core-strict</code></pre>
         </div>
     </div>
-    <div id="robo" class="step section">
+    <div id="robo" class="step section" data-x="-3800" data-y="-900">
         <div class="slide-text centered">
             <h1>Robo</h1>
             <img src="images/robo.png">
         </div>
     </div>
-    <div class="step" data-rotate-y="-90">
+    <div class="step" data-rotate-z="-90">
         <h2>Robo</h2>
         <div class="slide-text">
             <ul>
@@ -276,7 +275,7 @@
     );
             </code></pre>
     </div>
-    <div id="render-cache" class="step">
+    <div id="docker" class="step section" data-x="3800" data-y="-900">
         <div class="slide-text centered">
             <h1>Docker</h1>
             <img src="images/Docker_(container_engine)_logo.svg" alt="Docker whale logo">
@@ -332,7 +331,7 @@ services:
             </ul>
         </div>
     </div>
-    <div id="ahoy" class="step">
+    <div id="ahoy" class="step section" data-x="7600" data-y="-900">
         <div class="slide-text centered">
             <h1>Ahoy</h1>
             <h2>An abstraction layer for DX</h2>
@@ -340,21 +339,70 @@ services:
     </div>
     <div class="step" data-x="0" data-y="0">
         <h2>Ahoy</h2>
+        <div class="slide-text">
+            <ul>
+                <li>Written in Go</li>
+                <li>macOS, Linux, <a href="https://github.com/ahoy-cli/ahoy/issues/48">basic Windows</a></li>
+                <li>Commands work everywhere in the subtree below the project root.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="step" data-x="" data-y="">
+        <h2>Ahoy</h2>
         <h3>Shell commands and scripts in a yaml file</h3>
         <div class="slide-text">
+            <span class="code-title">Snippet from <code>.ahoy.yml</code></span>
             <pre><code>
 drush:
   usage: Run drush commands within the drupal site. Follow `ahoy drush` with the drush command to be run.
   cmd: docker-compose $(docker-machine config dp-docker) exec cli drush "$@"
+cast-off:
+  usage: Launch the global tools needed for local development. Run this command once after you boot your computer.
+  cmd: |
+    php scripts/robo/BallastRunner.php boot && #make sure boot is successful
+    php scripts/robo/BallastRunner.php "boot:dns"
 </code></pre>
         </div>
     </div>
-    <div id="questions" class="step">
+    <div class="step" data-x="0" data-y="0">
+        <h2>Ahoy</h2>
+        <div class="slide-text">
+            <span class="code-title">Example ahoy usage</span>
+            <pre><code>ahoy drush cache:rebuild</code></pre>
+        </div>
+    </div>
+    <div class="step" data-x="0" data-y="-1900" data-z="100">
+        <h2>Ballast</h2>
+        <div class="slide-text">
+            <span class="code-title">Just use Ballast</span>
+            <pre><code>composer create-project digitalpulp/ballast  your_project</code></pre>
+            <span class="code-title">I like my dev tool but I want to use Composer</span>
+            <pre><code>composer create-project drupal-composer/drupal-project:8.x-dev your_project --stability dev --no-interaction</code></pre>
+        </div>
+        </div>
+    </div>
+    <div id="questions" class="step" data-x="0" data-y="-1900" data-z="200">
         <h2>Open Q & A</h2>
         <div class="slide-text">
             <strong>&OpenCurlyDoubleQuote;Heeded my words not, did you? Pass on what you have learned. Strength, mastery.&CloseCurlyDoubleQuote;</strong>
             <img id="yoda" src="images/iu-2.jpeg">
             <strong>&OpenCurlyDoubleQuote;But weakness, folly, failure also. Yes, failure most of all. The greatest teacher, failure is.&CloseCurlyDoubleQuote;</strong>
+        </div>
+    </div>
+    <div class="step" data-x="0" data-y="-1900" data-z="300">
+        <h2>References</h2>
+        <div class="slide-text">
+            <ul>
+                <li><a href="https://getcomposer.org">Composer</a></li>
+                <li><a href="https://robo.li">Robo</a> </li>
+                <li><a href="https://docs.docker.com/engine/docker-overview/">Docker</a></li>
+                <li><a href="http://www.ahoycli.com/en/latest/">Ahoy</a></li>
+                <li><a href="https://github.com/digitalpulp/ballast">Contribute to Ballast</a></li>
+                <li><a href="https://packagist.org/packages/digitalpulp/ballast">Ballast on Packagist</a></li>
+                <li><a href="https://github.com/drupal-composer/drupal-project"></a>Drupal Composer on Github</li>
+                <li><a href="https://www.drupal.org/project/drupal/issues/2982674">Add composer build support to core</a></li>
+                <li><a href="https://github.com/docker/for-mac/issues/1592">Docker for Mac filesystem issue on Github</a></li>
+            </ul>
         </div>
     </div>
 </div>

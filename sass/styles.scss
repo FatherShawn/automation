@@ -103,46 +103,88 @@ textarea {
 /*
 Global Styles
 */
-.slide {
-  display: block;
-  opacity: 1;
-  width: $slide_width;
-  height: $slide_height;
-  border: 4px solid $dp_blue;
-  color: $text;
-  background: url("/images/DP_Logo_square.jpg") no-repeat;
-  background-position: top right;
-  background-color: white;
-  img {
-    display: none;
-  }
-  margin-left: auto;
-  margin-right: auto;
+/*
+    We display a fallback message for users with browsers that don't support
+    all the features required by it. All of the content will be still fully
+    accessible for them, but some more advanced effects would be missing.
+    When impress.js detects that browser supports all necessary CSS3 features,
+    the fallback-message style is hidden.
+*/
+
+.fallback-message {
+  font-family: sans-serif;
+  line-height: 1.3;
+
+  width: 780px;
+  padding: 10px 10px 0;
+  margin: 20px auto;
+
+  border: 1px solid #E4C652;
+  border-radius: 10px;
+  background: #EEDC94;
 }
 
-div.slide-text {
-  margin-left: 0.25em;
-  margin-right: 0.25em;
+.fallback-message p {
+  margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
   display: none;
 }
 
-div.slide.active {
-  div.slide-text {
+.step {
+  position: relative;
+  width: $slide_width;
+  height: $slide_height;
+  margin: 20px auto;
+  box-sizing: border-box;
+  border: 4px solid $dp_blue;
+  color: $text;
+  line-height: 1.5;
+}
+
+.impress-enabled {
+  .step {
+    opacity: 0;
     display: block;
-  }
-  img {
-    display: inline;
+    border: none;
+    height: auto;
+    &.present {
+      opacity: 1;
+      margin-left: auto;
+      margin-right: auto;
+      background: url("../images/DP_Logo_square.jpg") no-repeat;
+      background-position: top right;
+      background-color: white;
+    }
+    &.section {
+      opacity: 1;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &.title {
+      opacity: 1;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 
-div.slide-text.centered {
-  display: block;
-}
 
-.centered {
-  text-align: center;
-  margin-top: 25%;
-  display: block;
+div {
+  &.slide-text {
+    margin-left: $slide_width/8;
+    margin-right: $slide_width/8;
+    &.centered {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      p {
+        text-align: center;
+      }
+    }
+  }
 }
 
 a {
@@ -155,10 +197,6 @@ a:hover {
 }
 
 pre {
-  margin-top: 0;
-  margin-left: $text_down_one;
-  background: $code_background;
-  color: $code_text;
   line-height: 1rem;
   font-size: $text_down_two;
 }
