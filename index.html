@@ -322,10 +322,31 @@ services:
 </code></pre>
         </div>
     </div>
-    <div id="prevent-cache" class="step">
+    <div class="step" data-x="0" data-y="0">
+        <h2>Docker</h2>
+        <h3>Multi-project services</h3>
+        <div class="slide-text">
+            <ul>
+                <li>Nginx Proxy</li>
+                <li>DNS</li>
+            </ul>
+        </div>
+    </div>
+    <div id="ahoy" class="step">
         <div class="slide-text centered">
             <h1>Ahoy</h1>
             <h2>An abstraction layer for DX</h2>
+        </div>
+    </div>
+    <div class="step" data-x="0" data-y="0">
+        <h2>Ahoy</h2>
+        <h3>Shell commands and scripts in a yaml file</h3>
+        <div class="slide-text">
+            <pre><code>
+drush:
+  usage: Run drush commands within the drupal site. Follow `ahoy drush` with the drush command to be run.
+  cmd: docker-compose $(docker-machine config dp-docker) exec cli drush "$@"
+</code></pre>
         </div>
     </div>
     <div id="questions" class="step">
