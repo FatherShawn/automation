@@ -176,9 +176,9 @@ div {
     margin-left: $slide_width/8;
     margin-right: $slide_width/8;
     &.centered {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
       p {
         text-align: center;

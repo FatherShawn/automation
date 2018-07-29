@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Development Automation</title>
@@ -266,6 +266,8 @@
     <div class="step">
         <h2>Robo</h2>
         <h3>Usage in Ballast</h3>
+
+        <div class="slide-text">
         <span class="code-title">Dynamic Configuration</span>
         <pre><code>
   $collection->addTask(
@@ -274,6 +276,7 @@
         ->to($this->config->get('site_shortname'))
     );
             </code></pre>
+        </div>
     </div>
     <div id="docker" class="step section" data-x="3800" data-y="-900">
         <div class="slide-text centered">
@@ -379,14 +382,13 @@ cast-off:
             <span class="code-title">I like my dev tool but I want to use Composer</span>
             <pre><code>composer create-project drupal-composer/drupal-project:8.x-dev your_project --stability dev --no-interaction</code></pre>
         </div>
-        </div>
     </div>
     <div id="questions" class="step" data-x="0" data-y="-1900" data-z="200">
         <h2>Open Q & A</h2>
         <div class="slide-text">
-            <strong>&OpenCurlyDoubleQuote;Heeded my words not, did you? Pass on what you have learned. Strength, mastery.&CloseCurlyDoubleQuote;</strong>
+            <p><strong>&OpenCurlyDoubleQuote;Heeded my words not, did you? Pass on what you have learned. Strength, mastery.&CloseCurlyDoubleQuote;</strong></p>
             <img id="yoda" src="images/iu-2.jpeg">
-            <strong>&OpenCurlyDoubleQuote;But weakness, folly, failure also. Yes, failure most of all. The greatest teacher, failure is.&CloseCurlyDoubleQuote;</strong>
+            <p><strong>&OpenCurlyDoubleQuote;But weakness, folly, failure also. Yes, failure most of all. The greatest teacher, failure is.&CloseCurlyDoubleQuote;</strong></p>
         </div>
     </div>
     <div class="step" data-x="0" data-y="-1900" data-z="300">
