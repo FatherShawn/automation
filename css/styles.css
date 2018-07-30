@@ -105,7 +105,7 @@ Global Styles
 .impress-supported .fallback-message {
   display: none; }
 
-.step {
+div.step {
   position: relative;
   width: 1600px;
   height: 900px;
@@ -114,36 +114,32 @@ Global Styles
   border: 4px solid #00aef0;
   color: #333333;
   line-height: 1.5; }
-
-.impress-enabled .step {
-  opacity: 0;
-  display: block;
-  border: none;
-  height: auto; }
-  .impress-enabled .step.present {
+  div.step.section {
     opacity: 1;
-    margin-left: auto;
-    margin-right: auto;
-    background: url("../images/DP_Logo_square.jpg") no-repeat;
-    background-position: top right;
-    background-color: white; }
-  .impress-enabled .step.section {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center;
+    resize: vertical; }
+  div.step.title {
     opacity: 1;
-    margin-left: auto;
-    margin-right: auto; }
-  .impress-enabled .step.title {
-    opacity: 1;
-    margin-left: auto;
-    margin-right: auto; }
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center;
+    resize: vertical; }
 
 div.slide-text {
   margin-left: 200px;
   margin-right: 200px; }
   div.slide-text.centered {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; }
+    resize: vertical;
+    -ms-flex-pack: center;
+        justify-content: center; }
     div.slide-text.centered p {
       text-align: center; }
 
@@ -204,6 +200,19 @@ div#license {
 #license .footer-text {
   margin-left: 1em;
   font-size: 0.64em; }
+
+.impress-enabled div.step {
+  opacity: 0;
+  display: block;
+  border: none;
+  height: auto; }
+  .impress-enabled div.step.present {
+    opacity: 1;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("../images/DP_Logo_square.jpg") no-repeat;
+    background-position: top right;
+    background-color: white; }
 
 .slide a.dp-link {
   color: #00aef0; }

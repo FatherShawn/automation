@@ -132,7 +132,7 @@ Global Styles
   display: none;
 }
 
-.step {
+div.step {
   position: relative;
   width: $slide_width;
   height: $slide_height;
@@ -141,45 +141,29 @@ Global Styles
   border: 4px solid $dp_blue;
   color: $text;
   line-height: 1.5;
-}
-
-.impress-enabled {
-  .step {
-    opacity: 0;
-    display: block;
-    border: none;
-    height: auto;
-    &.present {
-      opacity: 1;
-      margin-left: auto;
-      margin-right: auto;
-      background: url("../images/DP_Logo_square.jpg") no-repeat;
-      background-position: top right;
-      background-color: white;
-    }
-    &.section {
-      opacity: 1;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    &.title {
-      opacity: 1;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  &.section {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    resize: vertical;
+  }
+  &.title {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    resize: vertical;
   }
 }
-
 
 div {
   &.slide-text {
     margin-left: $slide_width/8;
     margin-right: $slide_width/8;
     &.centered {
-      display: flex;
-      flex-direction: column;
+      resize: vertical;
       justify-content: center;
-      text-align: center;
       p {
         text-align: center;
       }
@@ -255,6 +239,24 @@ div#license {
   margin-left: 1em;
   font-size: $text_down_two;
 }
+
+.impress-enabled {
+  div.step {
+    opacity: 0;
+    display: block;
+    border: none;
+    height: auto;
+    &.present {
+      opacity: 1;
+      margin-left: auto;
+      margin-right: auto;
+      background: url("../images/DP_Logo_square.jpg") no-repeat;
+      background-position: top right;
+      background-color: white;
+    }
+  }
+}
+
 
 @import "slides/cover";
 @import "slides/questions";
