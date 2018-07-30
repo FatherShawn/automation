@@ -122,7 +122,8 @@ div.step {
         flex-direction: column;
     -ms-flex-pack: center;
         justify-content: center;
-    resize: vertical; }
+    -ms-flex-align: center;
+        align-items: center; }
   div.step.title {
     opacity: 1;
     display: -ms-flexbox;
@@ -131,7 +132,8 @@ div.step {
         flex-direction: column;
     -ms-flex-pack: center;
         justify-content: center;
-    resize: vertical; }
+    -ms-flex-align: center;
+        align-items: center; }
 
 div.slide-text {
   margin-left: 200px;
@@ -139,9 +141,14 @@ div.slide-text {
   div.slide-text.centered {
     resize: vertical;
     -ms-flex-pack: center;
-        justify-content: center; }
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
     div.slide-text.centered p {
       text-align: center; }
+    div.slide-text.centered .image-centered {
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 a {
   color: #2ec6ff;
@@ -217,6 +224,9 @@ div#license {
 .slide a.dp-link {
   color: #00aef0; }
 
+#ahoy em {
+  font-size: 1.95312em; }
+
 div#questions h2 {
   text-align: center; }
 
@@ -225,26 +235,6 @@ div#questions div.slide-text {
 
 div#questions img#yoda {
   max-height: 50%; }
-
-div#cache-contexts ul#topic-overview {
-  margin-bottom: 0; }
-
-div#cache-contexts div#contexts {
-  -moz-column-count: 2;
-  -moz-column-gap: 20px;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 20px;
-  column-count: 2;
-  column-gap: 20px;
-  font-size: 0.64em; }
-  div#cache-contexts div#contexts ul {
-    list-style: none;
-    font-family: monospace, serif;
-    _font-family: 'courier new', monospace;
-    margin: 0; }
-
-pre#cache-settings {
-  font-size: 0.8em; }
 
 dl#resource-links dd {
   font-size: 0.8em; }

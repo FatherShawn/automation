@@ -146,14 +146,14 @@ div.step {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    resize: vertical;
+    align-items: center;
   }
   &.title {
     opacity: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    resize: vertical;
+    align-items: center;
   }
 }
 
@@ -164,8 +164,12 @@ div {
     &.centered {
       resize: vertical;
       justify-content: center;
+      align-items: center;
       p {
         text-align: center;
+      }
+      .image-centered{
+        justify-content: center;
       }
     }
   }
@@ -259,7 +263,6 @@ div#license {
 
 
 @import "slides/cover";
+@import "slides/ahoy";
 @import "slides/questions";
-@import "slides/contexts";
-@import "slides/local-dev";
 @import "slides/resources";
