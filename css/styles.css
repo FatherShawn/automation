@@ -107,15 +107,14 @@ Global Styles
 
 div.step {
   position: relative;
-  width: 1600px;
-  height: 900px;
+  width: 1440px;
+  height: 810px;
   margin: 20px auto;
   box-sizing: border-box;
   border: 4px solid #00aef0;
   color: #333333;
   line-height: 1.5; }
   div.step.section {
-    opacity: 1;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -136,10 +135,9 @@ div.step {
         align-items: center; }
 
 div.slide-text {
-  margin-left: 200px;
-  margin-right: 200px; }
+  margin-left: 180px;
+  margin-right: 180px; }
   div.slide-text.centered {
-    resize: vertical;
     -ms-flex-pack: center;
         justify-content: center;
     -ms-flex-align: center;
@@ -199,27 +197,30 @@ dd a {
 Footer
 */
 div#license {
-  position: absolute;
-  bottom: 0.5em;
-  left: auto;
-  right: auto; }
-
-#license .footer-text {
-  margin-left: 1em;
-  font-size: 0.64em; }
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1em;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  div#license img {
+    vertical-align: baseline;
+    margin-right: 2px; }
+  div#license .footer-text {
+    font-size: 0.64em; }
 
 .impress-enabled div.step {
   opacity: 0;
-  display: block;
   border: none;
   height: auto; }
-  .impress-enabled div.step.present {
+  .impress-enabled div.step.active {
     opacity: 1;
     margin-left: auto;
     margin-right: auto;
     background: url("../images/DP_Logo_square.jpg") no-repeat;
     background-position: top right;
     background-color: white; }
+  .impress-enabled div.step.section, .impress-enabled div.step.title.future {
+    opacity: 1; }
 
 .slide a.dp-link {
   color: #00aef0; }

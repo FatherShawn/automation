@@ -15,20 +15,21 @@
     <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
-<div id="impress">
-    <div id="overview" class="step"></div>
+<!-- impress default width is 1440:810 = 16:9-->
+<div id="impress" data-width="1700" data-height="800">
+    <div id="overview" class="step" data-scale="2"></div>
     <div id="title" class="step title" data-x="0" data-y="0">
         <div class="slide-text centered">
             <h1>Development Automation with Composer, Robo and Docker</h1>
             <h2>The technology that powers the Ballast project</h2>
             <p>Shawn Duncan, Technical Architect<br><a class="dp-link" href="https://www.digitalpulp.com">Digital Pulp</a></p>
-        </div>
-        <div id="license">
-            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-                <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
-            </a>
-            <span class="footer-text">This work is licensed under a <a rel="license"
-                                                                       href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <div id="license">
+                <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                    <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+                <span class="footer-text">This work is licensed under a <a rel="license"
+                                                                           href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            </div>
         </div>
     </div>
     <div class="step" id="intro" data-z="-100">
@@ -70,13 +71,13 @@
             </ul>
         </div>
     </div>
-    <div id="composer" class="step section" data-x="-7600" data-y="-900">
+    <div id="composer" class="step section" data-x="-2400" data-y="-900">
         <div class="slide-text centered">
             <h1>Composer</h1>
-            <img src="images/Composer.svg">
+            <div class="image-centered"><img src="images/Composer.svg"></div>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-2400" data-y="50"  >
         <h2>Composer</h2>
         <h3>The hub technology of this project.</h3>
         <div class="slide-text">
@@ -88,7 +89,7 @@
             </ul>
         </div>
     </div>
-    <div class="step" data-x="-6650" data-y="-900">
+    <div class="step" data-x="-2812" data-y="-1756" data-rotate-z="154">
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
@@ -105,7 +106,7 @@
             </div>
         </div>
     </div>
-    <div class="step" data-x="-8550" data-y="-900" data-rotate-z="180">
+    <div class="step" data-x="-1808" data-y="-1643" data-rotate-z="154">
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
@@ -122,7 +123,7 @@
             </div>
         </div>
     </div>
-    <div class="step" data-x="-7125" data-y="-77" data-rotate-z="240">
+    <div class="step" data-x="-2611" data-y="26" data-rotate-z="154">
         <h2>Composer</h2>
         <h3>Events</h3>
         <div class="slide-text">
@@ -149,7 +150,7 @@
             </ul>
         </div>
     </div>
-    <div class="step" data-x="-8075" data-y="-1723" data-rotate-z="180">
+    <div class="step" data-x="-2611" data-y="-1826" data-rotate-z="154">
         <h2>Composer</h2>
         <h3>Events</h3>
         <div class="slide-text">
@@ -180,21 +181,21 @@
             </code></pre>
         </div>
     </div>
-    <div class="step" data-x="8075" data-y="-77" data-rotate-z="240">
+    <div class="step" data-x="-1808" data-y="-157" data-rotate-z="154">
         <h2>Composer</h2>
         <h3>Adding new Drupal modules</h3>
         <div class="slide-text">
             <pre><code>composer require drupal/module_name</code></pre>
         </div>
     </div>
-    <div class="step" data-x="-7125" data-y="-1723" data-rotate-z="180">
+    <div class="step" data-x="-3256" data-y="-1312" data-rotate-z="154">
         <h2>Composer</h2>
         <h3>Upgrade Core</h3>
         <div class="slide-text">
             <pre><code>composer update drupal/core webflo/drupal-core-require-dev webflo/drupal-core-strict</code></pre>
         </div>
     </div>
-    <div id="robo" class="step section" data-x="-3800" data-y="-900">
+    <div id="robo" class="step section" data-x="-2400" data-y="900">
         <div class="slide-text centered">
             <h1>Robo</h1>
             <img src="images/robo.png">
@@ -216,7 +217,7 @@
         <h3>Base Usage</h3>
         <div class="slide-text">
             <span class="code-title">Robo creates the command file</span>
-            <pre><code>robo init</code></pre>
+            <pre><code class="bash">robo init</code></pre>
         </div>
     </div>
     <div class="step">
@@ -224,7 +225,7 @@
         <h3>Base Usage</h3>
         <div class="slide-text">
             <span class="code-title">Public methods become executable commands</span>
-            <pre><code>
+            <pre><code class="php">
   /**
    * Prints the database connection info for use in SQL clients.
    */
@@ -239,7 +240,7 @@
   }
             </code></pre>
             <span class="code-title">on the command line:</span>
-            <pre><code>robo connect:sql</code></pre>
+            <pre><code class="bash">robo connect:sql</code></pre>
         </div>
     </div>
     <div class="step">
@@ -247,7 +248,7 @@
         <h3>Usage in Ballast</h3>
         <div class="slide-text">
             <span class="code-title">Commands can be split into multiple classes with a front controller</span>
-            <pre><code>
+            <pre><code class="bash">
 -| scripts
       BallastRunner.php
 ----| src
@@ -269,7 +270,7 @@
 
         <div class="slide-text">
         <span class="code-title">Dynamic Configuration</span>
-        <pre><code>
+        <pre><code class="php">
   $collection->addTask(
       $this->taskReplaceInFile("$root/setup/docker/docker-compose.yml")
         ->from('{site_shortname}')
@@ -278,7 +279,7 @@
             </code></pre>
         </div>
     </div>
-    <div id="docker" class="step section" data-x="3800" data-y="-900">
+    <div id="docker" class="step section" data-x="2400" data-y="-900">
         <div class="slide-text centered">
             <h1>Docker</h1>
             <img src="images/Docker_(container_engine)_logo.svg" alt="Docker whale logo">
@@ -303,7 +304,7 @@
                 <li>All share a network, start and stop together</li>
             </ul>
             <span class="code-title">Snippet from <code>docker-compose-template</code></span>
-<pre><code>
+<pre><code class="yaml">
 services:
   web:
     image: digitalpulp/nginx:stable-alpine-1.0.1
@@ -334,10 +335,9 @@ services:
             </ul>
         </div>
     </div>
-    <div id="ahoy" class="step section" data-x="7600" data-y="-900">
+    <div id="ahoy" class="step section" data-x="2400" data-y="900">
         <div class="slide-text centered">
             <h1>Ahoy</h1>
-            <em>An abstraction layer for DX</em>
             <div class="image-centered"><img src="images/ahoy.png"></div>
         </div>
     </div>
@@ -345,6 +345,7 @@ services:
         <h2>Ahoy</h2>
         <div class="slide-text">
             <ul>
+                <li>An abstraction layer for DX</li>
                 <li>Written in Go</li>
                 <li>macOS, Linux, <a href="https://github.com/ahoy-cli/ahoy/issues/48">basic Windows</a></li>
                 <li>Commands work everywhere in the subtree below the project root.</li>
@@ -356,7 +357,7 @@ services:
         <h3>Shell commands and scripts in a yaml file</h3>
         <div class="slide-text">
             <span class="code-title">Snippet from <code>.ahoy.yml</code></span>
-            <pre><code>
+            <pre><code class="yaml">
 drush:
   usage: Run drush commands within the drupal site. Follow `ahoy drush` with the drush command to be run.
   cmd: docker-compose $(docker-machine config dp-docker) exec cli drush "$@"
@@ -372,16 +373,16 @@ cast-off:
         <h2>Ahoy</h2>
         <div class="slide-text">
             <span class="code-title">Example ahoy usage</span>
-            <pre><code>ahoy drush cache:rebuild</code></pre>
+            <pre><code class="bash">ahoy drush cache:rebuild</code></pre>
         </div>
     </div>
     <div class="step" data-x="0" data-y="-1900" data-z="100">
         <h2>Ballast</h2>
         <div class="slide-text">
             <span class="code-title">Just use Ballast</span>
-            <pre><code>composer create-project digitalpulp/ballast  your_project</code></pre>
+            <pre><code class="bash">composer create-project digitalpulp/ballast  your_project</code></pre>
             <span class="code-title">I like my dev tool but I want to use Composer</span>
-            <pre><code>composer create-project drupal-composer/drupal-project:8.x-dev your_project --stability dev --no-interaction</code></pre>
+            <pre><code class="bash">composer create-project drupal-composer/drupal-project:8.x-dev your_project --stability dev --no-interaction</code></pre>
         </div>
     </div>
     <div id="questions" class="step" data-x="0" data-y="-1900" data-z="200">
@@ -402,7 +403,7 @@ cast-off:
                 <li><a href="http://www.ahoycli.com/en/latest/">Ahoy</a></li>
                 <li><a href="https://github.com/digitalpulp/ballast">Contribute to Ballast</a></li>
                 <li><a href="https://packagist.org/packages/digitalpulp/ballast">Ballast on Packagist</a></li>
-                <li><a href="https://github.com/drupal-composer/drupal-project"></a>Drupal Composer on Github</li>
+                <li><a href="https://github.com/drupal-composer/drupal-project">Drupal Composer on Github</a></li>
                 <li><a href="https://www.drupal.org/project/drupal/issues/2982674">Add composer build support to core</a></li>
                 <li><a href="https://github.com/docker/for-mac/issues/1592">Docker for Mac filesystem issue on Github</a></li>
             </ul>
