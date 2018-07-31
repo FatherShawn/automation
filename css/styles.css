@@ -148,6 +148,14 @@ div.slide-text {
       -ms-flex-pack: center;
           justify-content: center; }
 
+.codeship-ci {
+  display: -ms-flexbox;
+  display: flex; }
+  .codeship-ci pre {
+    -ms-flex: 1 1 50%;
+        flex: 1 1 50%;
+    padding: 0 10px; }
+
 a {
   color: #2ec6ff;
   text-decoration: none; }
@@ -221,6 +229,8 @@ div#license {
     background-color: white; }
   .impress-enabled div.step.section, .impress-enabled div.step.title.future {
     opacity: 1; }
+  .impress-enabled div.step.section.past h1 {
+    opacity: 0; }
 
 .slide a.dp-link {
   color: #00aef0; }

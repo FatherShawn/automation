@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="step" id="intro" data-z="-100">
+    <div class="step" id="intro" data-z="-300">
         <h2>Introduction</h2>
         <div class="slide-text">
             <ul>
@@ -43,7 +43,7 @@
             </ul>
         </div>
     </div>
-    <div id="dx-overview" class="step" data-z="-200">
+    <div id="dx-overview" class="step" data-z="-600">
         <div class="slide-text centered">
             <h2>Developer Tasks</h2>
         </div>
@@ -89,7 +89,7 @@
             </ul>
         </div>
     </div>
-    <div class="step" data-x="-2602" data-y="-1319" data-rotate-z="154">
+    <div class="step" data-x="-2775" data-y="-601" data-rotate-z="51">
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-    <div class="step" data-x="-2036" data-y="-610" data-rotate-z="-26">
+    <div class="step" data-x="-2868" data-y="-1007" data-rotate-z="103">
         <h2>Composer</h2>
         <h3>Managing Dependencies</h3>
         <div class="slide-text">
@@ -123,7 +123,7 @@
             </div>
         </div>
     </div>
-    <div class="step" data-x="-2853" data-y="-1003" data-rotate-z="154">
+    <div class="step" data-x="-2608" data-y="-1332" data-rotate-z="154">
         <h2>Composer</h2>
         <h3>Events</h3>
         <div class="slide-text">
@@ -150,7 +150,7 @@
             </ul>
         </div>
     </div>
-    <div class="step" data-x="-1947" data-y="-1003" data-rotate-z="-26">
+    <div class="step" data-x="-2192" data-y="-1332" data-rotate-z="206">
         <h2>Composer</h2>
         <h3>Events</h3>
         <div class="slide-text">
@@ -181,14 +181,14 @@
             </code></pre>
         </div>
     </div>
-    <div class="step" data-x="-2764" data-y="-610" data-rotate-z="64">
+    <div class="step" data-x="-1932" data-y="-1007" data-rotate-z="257">
         <h2>Composer</h2>
         <h3>Adding new Drupal modules</h3>
         <div class="slide-text">
             <pre><code class="bash">composer require drupal/module_name</code></pre>
         </div>
     </div>
-    <div class="step" data-x="-2198" data-y="-1319" data-rotate-z="206">
+    <div class="step" data-x="-2025" data-y="-601" data-rotate-z="309">
         <h2>Composer</h2>
         <h3>Upgrade Core</h3>
         <div class="slide-text">
@@ -202,7 +202,7 @@
             <img src="images/robo.png">
         </div>
     </div>
-    <div class="step" data-rotate-z="-90">
+    <div class="step" data-x="-2400" data-y="1365">
         <h2>Robo</h2>
         <div class="slide-text">
             <ul>
@@ -213,7 +213,7 @@
             </ul>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-2602" data-y="481" data-rotate-z="154">
         <h2>Robo</h2>
         <h3>Base Usage</h3>
         <div class="slide-text">
@@ -221,7 +221,7 @@
             <pre><code class="bash">robo init</code></pre>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-2036" data-y="1190" data-rotate-z="309">
         <h2>Robo</h2>
         <h3>Base Usage</h3>
         <div class="slide-text">
@@ -244,7 +244,7 @@
             <pre><code class="bash">robo connect:sql</code></pre>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-2853" data-y="797" data-rotate-z="103">
         <h2>Robo</h2>
         <h3>Usage in Ballast</h3>
         <div class="slide-text">
@@ -265,7 +265,7 @@
             </code></pre>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="-1947" data-y="797" data-rotate-z="257">
         <h2>Robo</h2>
         <h3>Usage in Ballast</h3>
 
@@ -280,8 +280,9 @@
             </code></pre>
         </div>
     </div>
-    <div class="step" data-x="0" data-y="0">
-        <h2>Ballast</h2>
+    <div class="step" data-x="-2764" data-y="1190" data-rotate-z="51">
+        <h2>Robo</h2>
+        <h3>Usage in Ballast</h3>
         <div class="slide-text">
             <pre><code class="php">
 /**
@@ -310,18 +311,17 @@
     $this->setCleanMerge($options);
     return $this->getPushResult($options);
   }        </code> </pre>
-
         </div>
     </div>
-    <div class="step" data-x="0" data-y="0">
+    <div class="step" data-x="-2198" data-y="481" data-rotate-z="206">
         <h2>Codeship</h2>
         <div class="slide-text">
             <ul>
                 <li>Codeship Pro has a free level</li>
                 <li>Use essentially the same containers</li>
             </ul>
-            <div class="codeship-config"></div>
-            <pre><code class="yaml">
+            <div class="codeship-ci">
+                <pre><code class="yaml">
 code-quality:
   image: digitalpulp/code-quality
   working_dir: /var/www
@@ -343,8 +343,8 @@ deploy:
   environment:
     DEPLOY_TARGET: CHANGE_ME
 
-</code> </pre>
-            <pre><code class="yaml">
+                </code> </pre>
+                <pre><code class="yaml">
 - name: pull_dependencies
   tag: develop
   service: deploy
@@ -359,7 +359,9 @@ deploy:
 - name: deploy
   tag: develop
   service: deploy
-  command: php scripts/robo/BallastRunner.php deploy</code> </pre>
+  command: php scripts/robo/BallastRunner.php deploy
+                </code> </pre>
+            </div>
         </div>
     </div>
     <div id="docker" class="step section" data-x="2400" data-y="-900">
@@ -368,7 +370,7 @@ deploy:
             <img src="images/Docker_(container_engine)_logo.svg" alt="Docker whale logo">
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="2400" data-y="-435">
         <h2>Docker</h2>
         <h3>Virtual Process vs. Virtual Machine</h3>
         <div class="slide-text">
@@ -378,7 +380,7 @@ deploy:
             </ul>
         </div>
     </div>
-    <div class="step">
+    <div class="step" data-x="1997" data-y="-1135" data-rotate-z="120">
         <h2>Docker</h2>
         <h3>Compose</h3>
         <div class="slide-text">
@@ -408,7 +410,7 @@ services:
 </code></pre>
         </div>
     </div>
-    <div class="step" data-x="0" data-y="0">
+    <div class="step" data-x="2803" data-y="-1135" data-rotate-z="-120">
         <h2>Docker</h2>
         <h3>Multi-project services</h3>
         <div class="slide-text">
@@ -424,7 +426,7 @@ services:
             <div class="image-centered"><img src="images/ahoy.png"></div>
         </div>
     </div>
-    <div class="step" data-x="0" data-y="0">
+    <div class="step" data-x="2400" data-y="1365">
         <h2>Ahoy</h2>
         <div class="slide-text">
             <ul>
@@ -435,7 +437,7 @@ services:
             </ul>
         </div>
     </div>
-    <div class="step" data-x="" data-y="">
+    <div class="step" data-x="1997" data-y="668" data-rotate-z="120">
         <h2>Ahoy</h2>
         <h3>Shell commands and scripts in a yaml file</h3>
         <div class="slide-text">
@@ -452,14 +454,14 @@ cast-off:
 </code></pre>
         </div>
     </div>
-    <div class="step" data-x="0" data-y="0">
+    <div class="step" data-x="2803" data-y="668" data-rotate-z="-120">
         <h2>Ahoy</h2>
         <div class="slide-text">
             <span class="code-title">Example ahoy usage</span>
             <pre><code class="bash">ahoy drush cache:rebuild</code></pre>
         </div>
     </div>
-    <div class="step" data-x="0" data-y="-1900" data-z="100">
+    <div class="step" data-x="0" data-y="-1900">
         <h2>Ballast</h2>
         <div class="slide-text">
             <span class="code-title">Just use Ballast</span>
@@ -468,7 +470,7 @@ cast-off:
             <pre><code class="bash">composer create-project drupal-composer/drupal-project:8.x-dev your_project --stability dev --no-interaction</code></pre>
         </div>
     </div>
-    <div id="questions" class="step" data-x="0" data-y="-1900" data-z="200">
+    <div id="questions" class="step" data-x="0" data-y="-1900" data-z="-300" data-autoplay="10">
         <h2>Open Q & A</h2>
         <div class="slide-text">
             <p><strong>&OpenCurlyDoubleQuote;Heeded my words not, did you? Pass on what you have learned. Strength, mastery.&CloseCurlyDoubleQuote;</strong></p>
@@ -476,7 +478,7 @@ cast-off:
             <p><strong>&OpenCurlyDoubleQuote;But weakness, folly, failure also. Yes, failure most of all. The greatest teacher, failure is.&CloseCurlyDoubleQuote;</strong></p>
         </div>
     </div>
-    <div class="step" data-x="0" data-y="-1900" data-z="300">
+    <div id="references" class="step" data-x="0" data-y="-1900" data-z="-600">
         <h2>References</h2>
         <div class="slide-text">
             <ul>
