@@ -280,6 +280,88 @@
             </code></pre>
         </div>
     </div>
+    <div class="step" data-x="0" data-y="0">
+        <h2>Ballast</h2>
+        <div class="slide-text">
+            <pre><code class="php">
+/**
+   * Builds separate artifact and pushes to remote as a branch.
+   *
+   * @param array $options
+   *   Options from the command line or internal call.
+   *
+   * @return \Robo\Result
+   *   The result of the final push.
+   */
+  public function deployBranch(array $options = [
+    'branch' => InputOption::VALUE_REQUIRED,
+    'commit-msg' => InputOption::VALUE_REQUIRED,
+    'remote-branch' => NULL,
+    'remote' => NULL,
+    'build_id' => NULL,
+  ]) {
+    $this->setConfig();
+    $this->setDeploymentOptions($options);
+    $this->say('Deploying to branch ' . $options['branch']);
+    $this->setDeploymentVersionControl($options);
+    $this->getDeploymentDependencies();
+    $this->getSanitizedBuild();
+    $this->setDeploymentCommit($options);
+    $this->setCleanMerge($options);
+    return $this->getPushResult($options);
+  }        </code> </pre>
+
+        </div>
+    </div>
+    <div class="step" data-x="0" data-y="0">
+        <h2>Codeship</h2>
+        <div class="slide-text">
+            <ul>
+                <li>Codeship Pro has a free level</li>
+                <li>Use essentially the same containers</li>
+            </ul>
+            <div class="codeship-config"></div>
+            <pre><code class="yaml">
+code-quality:
+  image: digitalpulp/code-quality
+  working_dir: /var/www
+  volumes_from:
+    - deploy
+front-end:
+  image: digitalpulp/front-end:codeship
+  working_dir: /var/www/docroot/themes/custom/YOUR_THEME
+  volumes_from:
+    - deploy
+  environment:
+    THEME_NAME: CHANGE_ME
+deploy:
+  image: digitalpulp/cli:codeship
+  working_dir: /var/www
+  encrypted_env_file: env.encrypted
+  volumes:
+    - .:/var/www
+  environment:
+    DEPLOY_TARGET: CHANGE_ME
+
+</code> </pre>
+            <pre><code class="yaml">
+- name: pull_dependencies
+  tag: develop
+  service: deploy
+  command: composer install --no-dev --no-interaction --optimize-autoloader
+- name: code_quality
+  service: code-quality
+  command: pre-commit.sh
+- name: build_front
+  tag: develop
+  service: front-end
+  command: entrypoint.sh
+- name: deploy
+  tag: develop
+  service: deploy
+  command: php scripts/robo/BallastRunner.php deploy</code> </pre>
+        </div>
+    </div>
     <div id="docker" class="step section" data-x="2400" data-y="-900">
         <div class="slide-text centered">
             <h1>Docker</h1>
